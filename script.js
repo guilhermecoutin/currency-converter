@@ -17,27 +17,6 @@ function convertCurrency() {
         currency: "BRL"
     }).format(inputValue)
 
-    // if (selectCurrencyToConvert.value == "dolar") {
-    //     currencyValueToConvert.innerHTML = Intl.NumberFormat("en-gb", {
-    //         style: "currency",
-    //         currency: "USD"
-    //     }).format(inputValue)
-    // }
-
-    // if (selectCurrencyToConvert.value == "euro") {
-    //     currencyValueToConvert.innerHTML = Intl.NumberFormat("en-us", {
-    //         style: "currency",
-    //         currency: "EUR"
-    //     }).format(inputValue)
-    // }
-
-    // if (selectCurrencyToConvert.value == "libra") {
-    //     selectCurrencyToConvert.innerHTML = Intl.NumberFormat("en-us", {
-    //         style: "currency",
-    //         currency: "GBP"
-    //     }).format(inputValue / libra)
-    // }
-
     if (selectConvertedCurrency.value == "dolar") {
         convertedCurrencyValue.innerHTML = Intl.NumberFormat("en-gb", {
             style: "currency",
@@ -60,28 +39,6 @@ function convertCurrency() {
     }
 }
 
-// function changeCurrencyToConvert() {
-//     const toConvertImg = document.querySelector(".to-convert-img");
-//     const currencyNameToConvert = document.querySelector(".currency-name-to-convert")
-
-//     if (selectCurrencyToConvert.value == "dolar") {
-//         toConvertImg.src = "./assets/dolar.png"
-//         currencyNameToConvert.innerHTML = "Dólar americano"
-//     }
-
-//     if (selectCurrencyToConvert.value == "euro") {
-//         toConvertImg.src = "./assets/euro.png"
-//         currencyNameToConvert.innerHTML = "Euro"
-//     }
-
-//     if (selectCurrencyToConvert.value == "libra") {
-//         toConvertImg.src = "./assets/libra.png"
-//         currencyNameToConvert.innerHTML = "Libra"
-//     }
-
-//     convertCurrency()
-// }
-
 function changeCurrency() {
     const convertedImg = document.querySelector(".converted-img")
     const currencyNameConverted = document.querySelector(".currency-name-converted")
@@ -101,14 +58,8 @@ function changeCurrency() {
         currencyNameConverted.innerHTML = "Libra"
     }
 
-    // if (selectConvertedCurrency.value == "real") {
-    //     convertedImg.src = "./assets/real.png"
-    //     currencyNameConverted.innerHTML = "Real"
-    // }
-
     convertCurrency()
 }
 
 convertButton.addEventListener("click", convertCurrency)
 selectConvertedCurrency.addEventListener("change", changeCurrency)
-// selectCurrencyToConvert.addEventListener("change", changeCurrencyToConvert)
