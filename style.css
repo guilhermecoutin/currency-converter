@@ -46,7 +46,7 @@ main {
 }
 
 label,
-.currency-name, .currency-name-converted {
+.currency-name-to-convert, .currency-name-converted {
     color: #777;
     font-size: 14px;
 }
