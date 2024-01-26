@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <title>Currency converter</title>
+</head>
+
+<body>
+    <img class="logo-img" src="./assets/logo.png" alt="logo-do-conversor">
+
+    <main>
+        <label>
+            Converter <b>de</b>
+            <select>
+                <option>R$ Real brasileiro</option>
+            </select>
+        </label>
+
+        <label>
+            Converter <b>para</b>
+            <select id="select-converted-currency">
+                <option value="dolar">US$ Dólar americano</option>
+                <option value="euro">€ Euro</option>
+                <option value="libra">£ Libra</option>
+            </select>
+        </label>
+
+        <label>
+            Valor
+            <input class="input-value" placeholder="R$ 1.000,00" type="number">
+        </label>
+
+        <button class="convert-button">Converter</button>
+
+        <section>
+            <div class="currency-box">
+                <img src="./assets/real.png" alt="logo do real brasileiro">
+                <p class="currency-name">Real</p>
+                <p class="currency-value-to-convert">R$ 0,00</p>
+            </div>
+
+            <img class="arrow-img" src="./assets/arrow.png" alt="seta">
+
+            <div class="currency-box-converted">
+                <img class="converted-img" src="./assets/dolar.png" alt="logo do dolar">
+                <p class="currency-name-converted">Dólar Americano</p>
+                <p class="converted-currency-value">$0.00</p>
+            </div>
+        </section>   
+    </main>
+
+    <div class="video-box">
+        <video src="./assets/video-money.mp4" autoplay muted loop></video>
+        <div class="mask"></div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
