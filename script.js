@@ -2,15 +2,18 @@ const convertButton = document.querySelector(".convert-button")
 const selectConvertedCurrency = document.getElementById("select-converted-currency")
 const selectCurrencyToConvert = document.getElementById("select-currency-to-convert")
 
-
-function convertCurrency() {
+    async function convertCurrency () {
     const inputValue = document.querySelector(".input-value").value
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert")
     const convertedCurrencyValue = document.querySelector(".converted-currency-value")
 
-    const dolar = 5.00
-    const euro = 6.00
-    const libra = 6.50
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then( response => response.json())
+    const dataLibra  = await fetch("https://economia.awesomeapi.com.br/json/last/gbp").then( response => response.json())
+    
+    const dolar = data.USDBRL.high
+    const euro = data.EURBRL.high
+    const libra = dataLibra.GBPBRL.high
+    const bitcoin = data.BTCBRL.high
 
     currencyValueToConvert.innerHTML = Intl.NumberFormat("pt-br", {
         style: "currency",
@@ -37,6 +40,14 @@ function convertCurrency() {
             currency: "GBP"
         }).format(inputValue / libra)
     }
+
+    if (selectConvertedCurrency.value == "bitcoin") {
+        convertedCurrencyValue.innerHTML = Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "XBT",
+            minimumFractionDigits: 7,
+        }).format(inputValue / bitcoin)
+    }
 }
 
 function changeCurrency() {
@@ -56,6 +67,11 @@ function changeCurrency() {
     if (selectConvertedCurrency.value == "libra") {
         convertedImg.src = "./assets/libra.png"
         currencyNameConverted.innerHTML = "Libra"
+    }
+
+    if (selectConvertedCurrency.value == "bitcoin") {
+        convertedImg.src = "./assets/bitcoin.png"
+        currencyNameConverted.innerHTML = "BitCoin"
     }
 
     convertCurrency()
